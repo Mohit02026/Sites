@@ -74,8 +74,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: "blocking" }
 }
 
+// export const getStaticProps: GetStaticProps = async (ctx) => {
+//   const slug = ctx.params?.slug as string
+//   const content = (pagesData as any)[slug] || null
+
+//   return {
+//     props: {
+//       slug,
+//       content,
+//     },
+//     revalidate: 60,
+//   }
+// }
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params?.slug as string
+
+  // TEMP DEBUG
+  console.log("DEBUG pagesData keys:", Object.keys(pagesData || {}))
+  console.log("DEBUG requested slug:", slug)
+  console.log("DEBUG content exists:", !!(pagesData as any)[slug])
+
   const content = (pagesData as any)[slug] || null
 
   return {
@@ -86,3 +104,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     revalidate: 60,
   }
 }
+
