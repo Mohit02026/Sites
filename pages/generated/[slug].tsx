@@ -26,6 +26,11 @@ type Props = {
 }
 
 export default function GeneratedLandingPage({ slug, content }: Props) {
+     if (typeof window !== "undefined") {
+    console.log("DEBUG pagesData keys:", Object.keys(pagesData || {}))
+    console.log("DEBUG requested slug:", slug)
+    console.log("DEBUG content exists:", !!content)
+  }
   if (!content) {
     return (
       <main className="min-h-screen flex items-center justify-center">
