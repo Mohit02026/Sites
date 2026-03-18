@@ -34,7 +34,7 @@ export default function GeneratedLandingPage({ slug, content }: Props) {
   if (!content) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p>No landing page found for {slug}.</p>
+        <p>No landing page found for {slug} (v2).</p>
       </main>
     )
   }
